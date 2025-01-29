@@ -3,12 +3,11 @@ import json
 from os import listdir, mkdir
 from os.path import isfile, join, isdir
 
-# onlyfiles_en = [f for f in listdir("./exercises") if isfile(join("./exercises", f))]
-onlyfiles_en = []
+onlyfiles_en = [f for f in listdir("./exercises") if isfile(join("./exercises", f))]
 onlyfiles_de = [f for f in listdir("./aufgaben") if isfile(join("./aufgaben", f))]
 
 import re
-solution_marker = re.compile("#+ (add|write|type in) your (own )?code ((after|below) this line:?|here)")
+solution_marker = re.compile("\s*#+ (add|write|type in) your (own )?code ((after|below) this line:?|here)")
 solution_marker_german = re.compile("\s*#+ schreibe deinen code unter diese zeile")
 
 def filter_cell(cell, current_solution_marker):
